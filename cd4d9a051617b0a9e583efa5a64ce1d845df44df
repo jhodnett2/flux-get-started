@@ -1,0 +1,1 @@
+{"jobID":"23bb5575-796a-750f-7890-4bb946717d69","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"whiteboard-nonprod:deployment/cnn-sprout-server-dev":{"add":{"automated":"true"},"remove":{}}}},"result":null}
