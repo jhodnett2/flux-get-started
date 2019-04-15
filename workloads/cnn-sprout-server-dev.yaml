@@ -6,12 +6,12 @@ metadata:
     field.cattle.io/creatorId: u-cuook5qcq3
     field.cattle.io/publicEndpoints: '[{"addresses":["34.228.77.120"],"port":31159,"protocol":"TCP","serviceName":"whiteboard-nonprod:cnn-sprout-server-dev-nodeport","allNodes":true},{"addresses":[""],"port":80,"protocol":"HTTP","serviceName":"whiteboard-nonprod:cnn-sprout-server-dev-nodeport","ingressName":"whiteboard-nonprod:whiteboard-nonprod-public-shared-eks-dev","hostname":"sprout-server-dev.cnnio.net","path":"/*","allNodes":false}]'
   creationTimestamp: 2019-04-12T20:48:56Z
-  generation: 14
+  generation: 17
   labels:
     workload.user.cattle.io/workloadselector: deployment-whiteboard-nonprod-cnn-sprout-server-dev
   name: cnn-sprout-server-dev
   namespace: whiteboard-nonprod
-  resourceVersion: "1553554"
+  resourceVersion: "1558991"
   selfLink: /apis/apps/v1beta2/namespaces/whiteboard-nonprod/deployments/cnn-sprout-server-dev
   uid: 63d0b27f-5d64-11e9-aab2-02b0313e543a
 spec:
@@ -50,7 +50,7 @@ spec:
           value: dev
         - name: PORT
           value: "9001"
-        image: quay.io/turner/jth-cnn-sprout-server:2019-04-15T18.04.27-ip-10-63-217-145.HEAD.ce3027c
+        image: quay.io/turner/jth-cnn-sprout-server:2019-04-13T00.04.33-ip-10-63-198-234.HEAD.ed3ce0a
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -95,4 +95,24 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: 2019-04-12T20:48:56Z
+    lastUpdateTime: 2019-04-15T18:17:25Z
+    message: ReplicaSet "cnn-sprout-server-dev-684b6659fb" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: 2019-04-15T22:04:19Z
+    lastUpdateTime: 2019-04-15T22:04:19Z
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 17
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
+
 
