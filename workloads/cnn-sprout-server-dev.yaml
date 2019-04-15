@@ -95,22 +95,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: 2019-04-12T20:48:56Z
-    lastUpdateTime: 2019-04-12T20:49:21Z
-    message: ReplicaSet "cnn-sprout-server-dev-844d5df4d" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: 2019-04-15T15:25:35Z
-    lastUpdateTime: 2019-04-15T15:25:35Z
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 5
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
