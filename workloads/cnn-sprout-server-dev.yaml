@@ -52,7 +52,7 @@ spec:
           value: dev
         - name: PORT
           value: "9001"
-        image: quay.io/turner/jth-cnn-sprout-server:2019-04-13T00.04.33-ip-10-63-198-234.HEAD.ed3ce0a
+        image: quay.io/turner/jth-cnn-sprout-server:2019-04-15T18.04.27-ip-10-63-217-145.HEAD.ce3027c
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
