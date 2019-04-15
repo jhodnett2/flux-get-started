@@ -1,24 +1,26 @@
----
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "1"
+    deployment.kubernetes.io/revision: "2"
     field.cattle.io/creatorId: u-cuook5qcq3
     field.cattle.io/publicEndpoints: '[{"addresses":["34.228.77.120"],"port":31159,"protocol":"TCP","serviceName":"whiteboard-nonprod:cnn-sprout-server-dev-nodeport","allNodes":true},{"addresses":[""],"port":80,"protocol":"HTTP","serviceName":"whiteboard-nonprod:cnn-sprout-server-dev-nodeport","ingressName":"whiteboard-nonprod:whiteboard-nonprod-public-shared-eks-dev","hostname":"sprout-server-dev.cnnio.net","path":"/*","allNodes":false}]'
-    flux.weave.works/automated: 'false'
+    flux.weave.works/sync-checksum: 81d1cc51d362fb8abed56a385f6eb305f647098b
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1beta2","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1","field.cattle.io/creatorId":"u-cuook5qcq3","field.cattle.io/publicEndpoints":"[{\"addresses\":[\"34.228.77.120\"],\"port\":31159,\"protocol\":\"TCP\",\"serviceName\":\"whiteboard-nonprod:cnn-sprout-server-dev-nodeport\",\"allNodes\":true},{\"addresses\":[\"\"],\"port\":80,\"protocol\":\"HTTP\",\"serviceName\":\"whiteboard-nonprod:cnn-sprout-server-dev-nodeport\",\"ingressName\":\"whiteboard-nonprod:whiteboard-nonprod-public-shared-eks-dev\",\"hostname\":\"sprout-server-dev.cnnio.net\",\"path\":\"/*\",\"allNodes\":false}]","flux.weave.works/sync-checksum":"81d1cc51d362fb8abed56a385f6eb305f647098b"},"creationTimestamp":"2019-04-12T20:48:56Z","generation":5,"labels":{"flux.weave.works/sync-gc-mark":"sha256.8awO6VKBjQn__QXgWRUZ4WQebxCB-ZT0xXmH3rRcaso","workload.user.cattle.io/workloadselector":"deployment-whiteboard-nonprod-cnn-sprout-server-dev"},"name":"cnn-sprout-server-dev","namespace":"whiteboard-nonprod","resourceVersion":"1508210","selfLink":"/apis/apps/v1beta2/namespaces/whiteboard-nonprod/deployments/cnn-sprout-server-dev","uid":"63d0b27f-5d64-11e9-aab2-02b0313e543a"},"spec":{"progressDeadlineSeconds":600,"replicas":2,"revisionHistoryLimit":10,"selector":{"matchLabels":{"workload.user.cattle.io/workloadselector":"deployment-whiteboard-nonprod-cnn-sprout-server-dev"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"field.cattle.io/ports":"[[{\"containerPort\":9001,\"dnsName\":\"cnn-sprout-server-dev-nodeport\",\"kind\":\"NodePort\",\"name\":\"9001tcp01\",\"protocol\":\"TCP\",\"sourcePort\":0}]]"},"creationTimestamp":null,"labels":{"workload.user.cattle.io/workloadselector":"deployment-whiteboard-nonprod-cnn-sprout-server-dev"}},"spec":{"containers":[{"env":[{"name":"AUTH_API_URL","value":"https://firefly-auth.api.cnn.io/virtuoso-auth-api/v1/login"},{"name":"DEBUG","value":"app:mongoose,app:lib:authUsers-api"},{"name":"ENVIRONMENT","value":"dev"},{"name":"HEALTHCHECK","value":"/hc"},{"name":"MONGODB_CONNECT_STRING","value":"mongodb://cnn-sprout-dev:ewABqY$Vx4T7@ds137801.mlab.com:37801/cnn-sprout-dev"},{"name":"NODE_ENV","value":"dev"},{"name":"PORT","value":"9001"}],"image":"quay.io/turner/jth-cnn-sprout-server:2019-04-13T00.04.33-ip-10-63-198-234.HEAD.ed3ce0a","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"/hc","port":9001,"scheme":"HTTP"},"initialDelaySeconds":10,"periodSeconds":2,"successThreshold":1,"timeoutSeconds":3},"name":"cnn-sprout-server-dev","ports":[{"containerPort":9001,"name":"9001tcp01","protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"/hc","port":9001,"scheme":"HTTP"},"initialDelaySeconds":10,"periodSeconds":2,"successThreshold":2,"timeoutSeconds":3},"resources":{"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"15m","memory":"64Mi"}},"securityContext":{"capabilities":{}},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"quay"}],"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2019-04-12T20:48:56Z","lastUpdateTime":"2019-04-12T20:49:21Z","message":"ReplicaSet \"cnn-sprout-server-dev-844d5df4d\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2019-04-15T15:25:35Z","lastUpdateTime":"2019-04-15T15:25:35Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"}],"observedGeneration":5,"readyReplicas":1,"replicas":1,"updatedReplicas":1}}
   creationTimestamp: 2019-04-12T20:48:56Z
-  generation: 5
+  generation: 7
   labels:
+    flux.weave.works/sync-gc-mark: sha256.8awO6VKBjQn__QXgWRUZ4WQebxCB-ZT0xXmH3rRcaso
     workload.user.cattle.io/workloadselector: deployment-whiteboard-nonprod-cnn-sprout-server-dev
   name: cnn-sprout-server-dev
   namespace: whiteboard-nonprod
-  resourceVersion: "1508210"
+  resourceVersion: "1531398"
   selfLink: /apis/apps/v1beta2/namespaces/whiteboard-nonprod/deployments/cnn-sprout-server-dev
   uid: 63d0b27f-5d64-11e9-aab2-02b0313e543a
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -32,7 +34,7 @@ spec:
     metadata:
       annotations:
         field.cattle.io/ports: '[[{"containerPort":9001,"dnsName":"cnn-sprout-server-dev-nodeport","kind":"NodePort","name":"9001tcp01","protocol":"TCP","sourcePort":0}]]'
-      creationTimestamp:
+      creationTimestamp: null
       labels:
         workload.user.cattle.io/workloadselector: deployment-whiteboard-nonprod-cnn-sprout-server-dev
     spec:
@@ -52,7 +54,7 @@ spec:
           value: dev
         - name: PORT
           value: "9001"
-        image: quay.io/turner/jth-cnn-sprout-server:2019-04-15T18.04.27-ip-10-63-217-145.HEAD.ce3027c
+        image: quay.io/turner/jth-cnn-sprout-server:2019-04-13T00.04.33-ip-10-63-198-234.HEAD.ed3ce0a
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -97,3 +99,23 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: 2019-04-15T18:16:44Z
+    lastUpdateTime: 2019-04-15T18:16:44Z
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: 2019-04-12T20:48:56Z
+    lastUpdateTime: 2019-04-15T18:17:25Z
+    message: ReplicaSet "cnn-sprout-server-dev-684b6659fb" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 7
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
+
